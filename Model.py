@@ -21,7 +21,7 @@ def analyze_text_with_emoji(text):
     sentiment = sia.polarity_scores(text)
     sentiment_score = sentiment['compound']
     matched_emoji = get_emoji(sentiment_score)
-    return f"{text} {matched_emoji}"
+    return f"{matched_emoji}"
 
 test_sentences = [
     "I just won a prize, and I’m so excited!",
@@ -33,3 +33,5 @@ test_sentences = [
 
 for sentence in test_sentences:
     print(analyze_text_with_emoji(sentence))
+
+

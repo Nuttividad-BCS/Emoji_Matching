@@ -2,10 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link href="{{ url_for('static', filename='styles/Main.css') }}" rel="stylesheet" type="text/css" >
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="{{ url_for('static', filename='styles/Main.css') }}" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emoji Analyzer</title>
 </head>
 <body>
@@ -14,12 +12,27 @@
     </div>
 
     <div id="Content">
-        <div id="Text_Box">
-            <input id="Text_Input" type="text">
-        </div>
+        <form method="POST" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+            <div id="Text_Box">
+                <input id="Text_Input" type="text" name="text" placeholder="Enter a sentence..." required>
+            </div>
+            <button type="submit" style="
+                margin-top: 10px;
+                padding: 10px 30px;
+                font-size: 20px;
+                border: none;
+                border-radius: 10px;
+                background-color: yellow;
+                color: black;
+                font-weight: bold;
+                cursor: pointer;
+            ">Analyze</button>
+        </form>
 
-        <div id="Emoji_Output_Box">
-
+        <div id="Emoji_Output_Box" style="margin-top: 30px; display: flex; align-items: center; justify-content: center; font-size: 80px;">
+            {% if emoji_result %}
+                {{ emoji_result }}
+            {% endif %}
         </div>
     </div>
 </body>
